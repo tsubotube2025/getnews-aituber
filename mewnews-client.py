@@ -36,18 +36,17 @@ BASE_DOMAINS = [
 ADDITIONAL_SITES = [
     "gaitame.com",
     "zai.diamond.jp",
-    "https://fx.minkabu.jp/news",
-    "https://min-fx.jp/market/news/",
-    "https://x.com/Min_FX",
-    "https://x.com/MktBrain",
-    "https://x.com/Yuto_Headline"
-
+    "https://fx.minkabu.jp",
+    "https://x.com/",
 
 
 ]
 ALL_TARGET_DOMAINS = BASE_DOMAINS + ADDITIONAL_SITES
 
-SEARCH_QUERY = "為替 FX 市場ニュース 最新 ドル円 ユーロドル ポンド"
+# 検索クエリ
+# Xの特定アカウントを狙いたい場合、クエリに名前を入れると少しヒット率が上がります
+SEARCH_QUERY = "為替 FX 市場ニュース 最新 ドル円 ユーロドル Min_FX MktBrain Yuto_Headline"
+
 # ============================================
 
 async def fetch_news_tavily(query):
@@ -173,7 +172,7 @@ async def main():
                 print(">> ニュースなし (NO_NEWS)")
         
         print("次回検索まで5分待機...")
-        await asyncio.sleep(90)
+        await asyncio.sleep(300)  # 5分待機
 
 if __name__ == "__main__":
     if os.name == 'nt': asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
