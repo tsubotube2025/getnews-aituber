@@ -45,7 +45,7 @@ ALL_TARGET_DOMAINS = BASE_DOMAINS + ADDITIONAL_SITES
 
 # 検索クエリ
 # Xの特定アカウントを狙いたい場合、クエリに名前を入れると少しヒット率が上がります
-SEARCH_QUERY = "為替 FX 市場ニュース 最新 ドル円 ユーロドル Min_FX MktBrain Yuto_Headline"
+SEARCH_QUERY = "為替 FX 市場ニュース 最新 ドル円 ユーロドル ポンド 中銀総裁 連銀総裁 日銀総裁 Min_FX MktBrain Yuto_Headline"
 
 # ============================================
 
@@ -160,7 +160,7 @@ async def main():
     while True:
           # ★ループのたびに日付入りクエリを作成
         today_str = datetime.now().strftime('%Y-%m-%d')
-        current_query = f"為替 FX 市場ニュース 最新 ドル円 ユーロドル ポンド {today_str}"
+        current_query = f"為替 FX 市場ニュース 最新 ドル円 ユーロドル ポンド 中銀総裁 連銀総裁 日銀総裁 Min_FX MktBrain Yuto_Headline {today_str}"
         # ニュース検索
         raw = await fetch_news_tavily(current_query)
         if raw:
